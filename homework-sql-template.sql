@@ -34,6 +34,7 @@ GO
 select e.NationalIDNumber, e.LoginID, e.JobTitle
 from HumanResources.Employee e
 where e.LoginID like '%0'
+order by e.JobTitle desc
 GO
 
 ----------------------ЗАДАНИЕ №5-----------------------------
@@ -43,7 +44,7 @@ GO
 -------------------------------------------------------------
 select *
 from Person.Person p
-where year(p.ModifiedDate) = '2008' 
+where year(p.ModifiedDate) = 2008 
 and p.MiddleName is not null 
 and p.Title is null
 GO
@@ -64,7 +65,7 @@ GO
 --Сгрупировать данные из таблицы Sales.SalesPerson по TerritoryID
 --и вывести сумму CommissionPct, если она больше 0
 -------------------------------------------------------------
-select sp.TerritoryID, sum(sp.CommissionPct)
+select sum(sp.CommissionPct)
 from Sales.SalesPerson sp
 where sp.CommissionPct > 0
 group by sp.TerritoryID
